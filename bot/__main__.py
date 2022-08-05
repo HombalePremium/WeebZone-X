@@ -192,7 +192,7 @@ def log(update, context):
 
 
 help_string = '''
-<b><a href='https://github.com/codewithweeb/mirror-with-weeb'>WeebZone</a></b> - The Ultimate Telegram MIrror-Leech Bot to Upload Your File & Link in Google Drive & Telegram
+<b><a href='https://github.com/codewithweeb/mirror-with-weeb'>Shadow Mirror</a></b> - The Ultimate Telegram MIrror-Leech Bot to Upload Your File & Link in Google Drive & Telegram
 Choose a help category:
 '''
 
@@ -304,8 +304,8 @@ help_admin = telegraph.create_page(
 
 def bot_help(update, context):
     button = ButtonMaker()
-    button.buildbutton("Owner", f"https://t.me/MrKartikL")
-    button.buildbutton("Channel", f"https://t.me/shhadowmirror19")
+    button.buildbutton("User", f"https://telegra.ph/{help_user}")
+    button.buildbutton("Admin", f"https://telegra.ph/{help_admin}")
     sendMarkup(help_string, context.bot, update.message, InlineKeyboardMarkup(button.build_menu(2)))
 
        
