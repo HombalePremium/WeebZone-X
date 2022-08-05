@@ -218,7 +218,7 @@ class MirrorListener:
         mesg = self.message.text.split('\n')
         message_args = mesg[0].split(' ', maxsplit=1)
         reply_to = self.message.reply_to_message
-        slmsg = f"Added by: {self.tag} \n👥 User ID: <code>{self.user_id}</code>\n\n"
+        slmsg = f"Added by: {self.tag} \n User ID: <code>{self.user_id}</code>\n\n"
         if LINK_LOGS:
             try:
                 source_link = message_args[1]
@@ -247,33 +247,33 @@ class MirrorListener:
         else:
             warnmsg = ''
         if BOT_PM and self.message.chat.type != 'private':
-            pmwarn = f"<b>😉 I have sent files in PM.</b>\n"
+            pmwarn = f"<b>I have sent files in PM.</b>\n"
         elif self.message.chat.type == 'private':
             pmwarn = ''
         else:
             pmwarn = ''
         if MIRROR_LOGS and self.message.chat.type != 'private':
-            logwarn = f"<b>⚠️ I have sent files in Mirror Log Channel.(Join Mirror Log channel) </b>\n"
+            logwarn = f"<b>I have sent files in Mirror Log Channel.(Join Mirror Log channel) </b>\n"
         elif self.message.chat.type == 'private':
             logwarn = ''
         else:
             logwarn = ''
         if LEECH_LOG and self.message.chat.type != 'private':
-            logleechwarn = f"<b>⚠️ I have sent files in Leech Log Channel.(Join Leech Log channel) </b>\n"
+            logleechwarn = f"<b>I have sent files in Leech Log Channel.(Join Leech Log channel) </b>\n"
         elif self.message.chat.type == 'private':
             logleechwarn = ''
         else:
             logleechwarn = ''
         if not self.isPrivate and INCOMPLETE_TASK_NOTIFIER and DB_URI is not None:
             DbManger().rm_complete_task(self.message.link)
-        msg = f"<b>╭🗂️ Name: </b><code>{escape(name)}</code>\n<b>├📐 Size: </b>{size}"
+        msg = f"<b>╭ Name: </b><code>{escape(name)}</code>\n<b>├ Size: </b>{size}"
         if self.isLeech:
             if SOURCE_LINK is True:
                 try:
                     source_link = message_args[1]
                     if is_magnet(source_link):
                         link = telegraph.create_page(
-                        title='WeebZone Source Link',
+                        title='Shadow Mirror Source Link',
                         content=source_link,
                     )["path"]
                         buttons.buildbutton(f"🔗 Source Link", f"https://telegra.ph/{link}")
@@ -288,7 +288,7 @@ class MirrorListener:
                             source_link = reply_text.strip()
                             if is_magnet(source_link):
                                 link = telegraph.create_page(
-                                    title='WeebZone Source Link',
+                                    title='Shadow Mirror Source Link',
                                     content=source_link,
                                 )["path"]
                                 buttons.buildbutton(f"🔗 Source Link", f"https://telegra.ph/{link}")
@@ -296,11 +296,11 @@ class MirrorListener:
                                 buttons.buildbutton(f"🔗 Source Link", source_link)
                     except Exception:
                         pass
-            msg += f'\n<b>├📚 Total Files: </b>{folders}'
+            msg += f'\n<b>├ Total Files: </b>{folders}'
             if typ != 0:
-                msg += f'\n<b>├💀 Corrupted Files: </b>{typ}'
-            msg += f'\n<b>├⌛ It Tooks:</b> {get_readable_time(time() - self.message.date.timestamp())}'
-            msg += f'\n<b>╰👤 cc: </b>{self.tag}\n\n'
+                msg += f'\n<b>├ Corrupted Files: </b>{typ}'
+            msg += f'\n<b>├ It Took :</b> {get_readable_time(time() - self.message.date.timestamp())}'
+            msg += f'\n<b>╰ #Leeched cc: </b>{self.tag}\n\n'
             if LEECH_LOG:
                 for i in LEECH_LOG:
                     indexmsg = ''
@@ -337,12 +337,12 @@ class MirrorListener:
                     uploadmsg = sendMarkup(msg + fmsg + pmwarn + logleechwarn + warnmsg, self.bot, self.message, InlineKeyboardMarkup(buttons.build_menu(2)))
                     Thread(target=auto_delete_upload_message, args=(bot, self.message, uploadmsg)).start()
         else:
-            msg += f'\n<b>├📦 Type: </b>{typ}'
+            msg += f'\n<b>├ Type: </b>{typ}'
             if ospath.isdir(f'{DOWNLOAD_DIR}{self.uid}/{name}'):
-                msg += f'\n<b>├🗃️ SubFolders: </b>{folders}'
-                msg += f'\n<b>├🗂️ Files: </b>{files}'
-            msg += f'\n<b>├⌛ It Tooks:</b> {get_readable_time(time() - self.message.date.timestamp())}'
-            msg += f'\n<b>╰👤 cc: </b>{self.tag}\n\n'
+                msg += f'\n<b>├ SubFolders: </b>{folders}'
+                msg += f'\n<b>├ Files: </b>{files}'
+            msg += f'\n<b>├ It Took :</b> {get_readable_time(time() - self.message.date.timestamp())}'
+            msg += f'\n<b>╰ #Mirrored cc: </b>{self.tag}\n\n'
             buttons = ButtonMaker()
             link = short_url(link)
             buttons.buildbutton("☁️ Drive Link", link)
