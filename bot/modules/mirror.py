@@ -266,7 +266,7 @@ class MirrorListener:
             logleechwarn = ''
         if not self.isPrivate and INCOMPLETE_TASK_NOTIFIER and DB_URI is not None:
             DbManger().rm_complete_task(self.message.link)
-        msg = f"<b>╭ Name: </b><code>{escape(name)}</code>\n<b>├ Size: </b>{size}"
+        msg = f"<b>File Name: </b><code>{escape(name)}</code>\n<b>File Size: </b>{size}"
         if self.isLeech:
             if SOURCE_LINK is True:
                 try:
@@ -296,11 +296,12 @@ class MirrorListener:
                                 buttons.buildbutton(f"🔗 Source Link", source_link)
                     except Exception:
                         pass
-            msg += f'\n<b>├ Total Files: </b>{folders}'
+            msg += f'\n<b>Total Files: </b>{folders}'
             if typ != 0:
-                msg += f'\n<b>├ Corrupted Files: </b>{typ}'
-            msg += f'\n<b>├ It Took :</b> {get_readable_time(time() - self.message.date.timestamp())}'
-            msg += f'\n<b>╰ #Leeched cc: </b>{self.tag}\n\n'
+                msg += f'\n<b>Corrupted Files: </b>{typ}'
+            msg += f'\n\n<b>Hey </b>{self.tag} <b>Your Job is Done</b>'
+            msg += f'\n<b>#Leeched It Took : </b> {get_readable_time(time() - self.message.date.timestamp())}'
+            msg += f'\n\n<b>Thanks For using Mirror Test</b>'
             if LEECH_LOG:
                 for i in LEECH_LOG:
                     indexmsg = ''
@@ -337,12 +338,13 @@ class MirrorListener:
                     uploadmsg = sendMarkup(msg + fmsg + pmwarn + logleechwarn + warnmsg, self.bot, self.message, InlineKeyboardMarkup(buttons.build_menu(2)))
                     Thread(target=auto_delete_upload_message, args=(bot, self.message, uploadmsg)).start()
         else:
-            msg += f'\n<b>├ Type: </b>{typ}'
+            msg += f'\n<b>Type: </b>{typ}'
             if ospath.isdir(f'{DOWNLOAD_DIR}{self.uid}/{name}'):
-                msg += f'\n<b>├ SubFolders: </b>{folders}'
-                msg += f'\n<b>├ Files: </b>{files}'
-            msg += f'\n<b>├ It Took :</b> {get_readable_time(time() - self.message.date.timestamp())}'
-            msg += f'\n<b>╰ #Mirrored cc: </b>{self.tag}\n\n'
+                msg += f'\n<b>SubFolders: </b>{folders}'
+                msg += f'\n<b>Files: </b>{files}'
+            msg += f'\n\n<b>Hey </b>{self.tag} <b>Your Job is Done</b>'
+            msg += f'\n<b>#Mirrored It Took : </b> {get_readable_time(time() - self.message.date.timestamp())}'
+            msg += f'\n\n<b>Thanks For using Mirror Test</b>'
             buttons = ButtonMaker()
             link = short_url(link)
             buttons.buildbutton("☁️ Drive Link", link)
