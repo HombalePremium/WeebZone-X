@@ -29,13 +29,13 @@ def _clone(message, bot, multi=0):
     else:
         warnmsg = ''
     if BOT_PM and message.chat.type != 'private':
-        pmwarn = f"<b>😉I have sent files in PM.</b>\n"
+        pmwarn = f"<b>I have sent files in PM.</b>\n"
     elif message.chat.type == 'private':
         pmwarn = ''
     else:
         pmwarn = ''
     if MIRROR_LOGS and message.chat.type != 'private':
-        logwarn = f"<b>⚠️ I have sent files in Mirror Log Channel.(Join Mirror Log channel) </b>\n"
+        logwarn = f"<b>I have sent files in Mirror Log Channel.(Join Mirror Log channel) </b>\n"
     elif message.chat.type == 'private':
         logwarn = ''
     else:
@@ -150,7 +150,7 @@ def _clone(message, bot, multi=0):
                     update_all_messages()
             except IndexError:
                 pass
-        cc = f'\n<b>╰👤 cc: </b>{tag}\n\n'
+        cc = f'\n<b>╰ #Cloned cc: </b>{tag}\n\n'
         if button in ["cancelled", ""]:
             sendMessage(f"{tag} {result}", bot, message)
         else:
@@ -180,7 +180,7 @@ def _clone(message, bot, multi=0):
     message_args = mesg[0].split(' ', maxsplit=1)
     user_id = message.from_user.id
     tag = f"@{message.from_user.username}"
-    slmsg = f"Added by: {tag} \n👥 User ID: <code>{user_id}</code>\n\n"
+    slmsg = f"Added by: {tag} \n User ID: <code>{user_id}</code>\n\n"
     if LINK_LOGS:
             try:
                 source_link = message_args[1]
