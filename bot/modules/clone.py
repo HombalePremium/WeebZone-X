@@ -29,13 +29,13 @@ def _clone(message, bot, multi=0):
     else:
         warnmsg = ''
     if BOT_PM and message.chat.type != 'private':
-        pmwarn = f"<b>I have sent files in PM.</b>\n"
+        pmwarn = ''
     elif message.chat.type == 'private':
         pmwarn = ''
     else:
         pmwarn = ''
     if MIRROR_LOGS and message.chat.type != 'private':
-        logwarn = f"<b>I have sent files in Mirror Log Channel.(Join Mirror Log channel) </b>\n"
+        logwarn = ''
     elif message.chat.type == 'private':
         logwarn = ''
     else:
