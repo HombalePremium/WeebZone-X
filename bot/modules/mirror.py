@@ -247,19 +247,19 @@ class MirrorListener:
         else:
             warnmsg = ''
         if BOT_PM and self.message.chat.type != 'private':
-            pmwarn = f"<b>I have sent files in PM.</b>\n"
+            pmwarn = ''
         elif self.message.chat.type == 'private':
             pmwarn = ''
         else:
             pmwarn = ''
         if MIRROR_LOGS and self.message.chat.type != 'private':
-            logwarn = f"<b>I have sent files in Mirror Log Channel.(Join Mirror Log channel) </b>\n"
+            logwarn = ''
         elif self.message.chat.type == 'private':
             logwarn = ''
         else:
             logwarn = ''
         if LEECH_LOG and self.message.chat.type != 'private':
-            logleechwarn = f"<b>I have sent files in Leech Log Channel.(Join Leech Log channel) </b>\n"
+            logleechwarn = ''
         elif self.message.chat.type == 'private':
             logleechwarn = ''
         else:
