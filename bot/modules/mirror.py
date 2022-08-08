@@ -301,7 +301,7 @@ class MirrorListener:
                 msg += f'\n<b>Corrupted Files: </b>{typ}'
             msg += f'\n\n<b>Hey </b>{self.tag} <b>Your Job is Done</b>'
             msg += f'\n<b>#Leeched It Took : </b> {get_readable_time(time() - self.message.date.timestamp())}'
-            msg += f'\n\n<b>Thanks For using Mirror Test</b>'
+            msg += f'\n\n<b>Thanks For using Hombale Mirror-Leech</b>'
             if LEECH_LOG:
                 for i in LEECH_LOG:
                     indexmsg = ''
@@ -344,7 +344,7 @@ class MirrorListener:
                 msg += f'\n<b>Files: </b>{files}'
             msg += f'\n\n<b>Hey </b>{self.tag} <b>Your Job is Done</b>'
             msg += f'\n<b>#Mirrored It Took : </b> {get_readable_time(time() - self.message.date.timestamp())}'
-            msg += f'\n\n<b>Thanks For using Xtreme Mirror Bot</b>'
+            msg += f'\n\n<b>Thanks For using Hombale Mirror-Leech Bot</b>'
             buttons = ButtonMaker()
             link = short_url(link)
             buttons.buildbutton("☁️ Drive Link", link)
