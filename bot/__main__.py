@@ -87,7 +87,7 @@ def getHerokuDetails(h_api_key, h_app_name):
         abc += f"<b>├ APP USAGE:</b> {get_readable_time(AppQuotaUsed)}\n"
         abc += f"<b>├ OTHER APP:</b> {get_readable_time(OtherAppsUsage)}\n"
         abc += f'<b>│</b>\n'
-        abc += f'<b>╰─《 @shadowmirror19 》</b>'
+        abc += f'<b>╰─《 @LeechGroupH 》</b>'
         return abc
     except Exception as g:
         LOGGER.error(g)
@@ -153,8 +153,8 @@ def stats(update, context):
 
 def start(update, context):
     buttons = ButtonMaker()
-    buttons.buildbutton("Owner", "https://t.me/MrKartikL")
-    buttons.buildbutton("Updates Channel", "https://t.me/shadowmirror19")
+    buttons.buildbutton("Owner", "https://t.me/r2spr")
+    buttons.buildbutton("Mirror-Leech Group", "https://t.me/LeechGroupH")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
@@ -163,7 +163,7 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
 '''
         sendMarkup(start_string, context.bot, update.message, reply_markup)
     else:
-        sendMarkup('Not Authorized user, deploy your own mirror-leech bot', context.bot, update.message, reply_markup)
+        sendMarkup('Not Authorized user, Join below mirror-leech Group', context.bot, update.message, reply_markup)
 
 def restart(update, context):
     restart_message = sendMessage("Restarting, Please wait!..👻👻", context.bot, update.message)
