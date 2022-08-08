@@ -72,10 +72,10 @@ class TelegraphHelper:
                     nxt_page += 1
             self.edit_page(
                 path = path[prev_page],
-                title = 'Shadow Mirror Torrent Search',
+                title = 'Hombale Mirror-Leech Torrent Search',
                 content=content
             )
         return
 
 
-telegraph=TelegraphHelper(f'Shadow Mirror', f'https://t.me/shadowmirror19')
+telegraph=TelegraphHelper(f'Hombale Mirror-Leech', f'https://t.me/r2spr')
