@@ -192,7 +192,7 @@ def log(update, context):
 
 
 help_string = '''
-<b><a href='https://github.com/codewithweeb/mirror-with-weeb'>Shadow Mirror</a></b> - The Ultimate Telegram MIrror-Leech Bot to Upload Your File & Link in Google Drive & Telegram
+<b><a href='https://github.com/codewithweeb/mirror-with-weeb'>Hombale Mirror-Leech</a></b> - The Ultimate Telegram MIrror-Leech Bot to Upload Your File & Link in Google Drive & Telegram
 Choose a help category:
 '''
 
@@ -275,7 +275,7 @@ help_string_telegraph_user = f'''
 '''
 
 help_user = telegraph.create_page(
-    title='Shadow Mirror Help',
+    title='Hombale Mirror-Leech Help',
     content=help_string_telegraph_user)["path"]
 
 help_string_telegraph_admin = f'''
@@ -299,7 +299,7 @@ help_string_telegraph_admin = f'''
 '''
 
 help_admin = telegraph.create_page(
-    title='Shadow Mirror Help',
+    title='Hombale Mirror-Leech Help',
     content=help_string_telegraph_admin)["path"]
 
 def bot_help(update, context):
